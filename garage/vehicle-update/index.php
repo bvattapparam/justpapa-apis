@@ -23,7 +23,6 @@ transaction_update();
     $FINANCE                =   $data->finance;
     $FINANCEAMOUNT          =   $data->financeAmount;
     $COMMENT                =   $data->comment;
-    $CREATEDBY              =   $data->modifiedBy;
     $MODIFIEDBY             =   $data->modifiedBy;
 
     $qry = "UPDATE ng_vehicle

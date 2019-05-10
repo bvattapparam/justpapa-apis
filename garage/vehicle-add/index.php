@@ -49,9 +49,7 @@ vehicle_add();
         FINANCE,
         FINANCEAMOUNT,
         CREATEDBY,
-        CREATEDDATE,
         MODIFIEDBY,
-        MODIFIEDDATE,
         COMMENT) 
     VALUES (
         '$VEHICLEID',
@@ -68,9 +66,7 @@ vehicle_add();
         '$FINANCE',
         '$FINANCEAMOUNT',
         '$CREATEDBY',
-        '$CREATEDDATE',
         '$MODIFIEDBY',
-        '$MODIFIEDDATE',
         '$COMMENT'
         )";
      $result = mysqli_query($con,$qry);
