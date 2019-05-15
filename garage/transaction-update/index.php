@@ -12,10 +12,10 @@ transaction_update();
     $VEHICLEID              =   $data->vehicleId;
     $AMOUNT                 =   $data->amount;
     $TRANXDATE              =   $data->tranxDate;
-    $PURPOSE                =   $data->purpose;
-    $SERVICESTATION         =   strtoupper($data->serviceStation);
-    $ITEM                   =   $data->item;
-    $COMMENT                =   $data->comment;
+    $PURPOSE                =   valFORMAT($data->purpose);
+    $SERVICESTATION         =   valFORMAT($data->serviceStation);
+    $ITEM                   =   valFORMAT($data->item);
+    $COMMENT                =   valFORMAT($data->comment);
     $MODIFIEDBY             =   $data->modifiedBy;
 
     $qry = "UPDATE ng_vehicle_transactions 

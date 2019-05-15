@@ -13,7 +13,7 @@ transaction_add();
     $BASKET             =   $data->basket;
     $FROMPERSON         =   $data->fromPerson;
     $BASKETOWNER        =   $data->basketOwner;
-    $COMMENT            =   $data->comment;
+    $COMMENT            =   valFORMAT($data->comment);
     $CREATEDBY          =   $data->modifiedBy;
     $MODIFIEDBY         =   $data->modifiedBy;
 

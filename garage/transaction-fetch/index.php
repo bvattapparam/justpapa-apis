@@ -30,7 +30,7 @@ function transaction_byvehicleId() {
   }
   $qry_res = mysqli_query($con,$qry);
 
-  $qry_count = mysqli_query($con,"SELECT * FROM ng_vehicle_transactions");
+  $qry_count = mysqli_query($con,"SELECT * FROM ng_vehicle_transactions WHERE VEHICLEID = '$VEHICLEID'");
   $num_rows = mysqli_num_rows($qry_count);
 
   if(!$qry_res){

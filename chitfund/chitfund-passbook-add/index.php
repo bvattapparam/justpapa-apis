@@ -13,7 +13,7 @@ chitfund_passbook_add();
     $MONTH              =   $data->month;
     $AMOUNT             =   $data->amount;
     $PAYMODE            =   $data->payMode;
-    $COMMENT            =   $data->comment;
+    $COMMENT            =   valFORMAT($data->comment);
     $CREATEDBY          =   $data->modifiedBy;
     $MODIFIEDBY         =   $data->modifiedBy;
 

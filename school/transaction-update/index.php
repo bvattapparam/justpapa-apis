@@ -9,14 +9,14 @@ transaction_update();
     global $con;
    
     $data = json_decode(file_get_contents("php://input"));
-    $FEESID            =   $data->feesId;
+    $FEESID         =   $data->feesId;
     $MONTH          =   $data->month;
     $AMOUNT         =   $data->amount;
     $PURPOSE        =   $data->purpose;
     $PERSON         =   $data->person;
     $INSTITUTION    =   $data->institution;
     $STATUS         =   $data->status;
-    $COMMENT        =   $data->comment;
+    $COMMENT        =   valFORMAT($data->comment);
     $MODIFIEDBY     =   $data->modifiedBy;
 
     $qry = "UPDATE tbl_fees_manager 

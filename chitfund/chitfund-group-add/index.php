@@ -17,7 +17,7 @@ chitfund_group_add();
     $STATUS             =   $data->status;
     $POC                =   $data->poc;
     $PERSON             =   $data->person;
-    $COMMENT            =   $data->comment;
+    $COMMENT            =   valFORMAT($data->comment);
     $CREATEDBY          =   $data->modifiedBy;
     $MODIFIEDBY         =   $data->modifiedBy;
 

@@ -11,10 +11,10 @@ transaction_add();
     $VEHICLEID              =   $data->vehicleId;
     $AMOUNT                 =   $data->amount;
     $TRANXDATE              =   $data->tranxDate;
-    $PURPOSE                =   $data->purpose;
-    $ITEM                   =   $data->item;
+    $PURPOSE                =   valFORMAT($data->purpose);
+    $ITEM                   =   valFORMAT($data->item);
     $SERVICESTATION         =   strtoupper($data->serviceStation);
-    $COMMENT                =   $data->comment;
+    $COMMENT                =   valFORMAT($data->comment);
     $CREATEDBY              =   $data->modifiedBy;
     $MODIFIEDBY             =   $data->modifiedBy;
 

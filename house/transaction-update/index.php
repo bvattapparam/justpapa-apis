@@ -2,31 +2,49 @@
 include('../../config/config.php');
 include('../../config/log_handler.php');
 
-transaction_update();
+switch($_GET['action']) {
+  case 'housePayment' :
+  house_payment_update();
+  break;
+  case 'byvehicleId' :
+  transaction_byvehicleId();
+  break;
+  case 'byId' :
+  transaction_byId();
+  break;
+  case 'housePaymentByHouseId' :
+  housePayment_byHouseId();
+  break;
+}
 
   /** Function to Push Product **/
-  function transaction_update() {
+  function house_payment_update() {
     global $con;
    
     $data = json_decode(file_get_contents("php://input"));
-    $VEHICLEID              =   $data->vehicleId;
-    $AMOUNT                 =   $data->amount;
-    $TRANXDATE              =   $data->tranxDate;
-    $PURPOSE                =   $data->purpose;
-    $SERVICESTATION         =   strtoupper($data->serviceStation);
-    $ITEM                   =   $data->item;
-    $COMMENT                =   $data->comment;
-    $MODIFIEDBY             =   $data->modifiedBy;
+    $ID                 =   $data->id;
+    $HOUSEID            =   $data->houseId;
+    $PAIDDATE           =   $data->paidDate;
+    $PAYMODE            =   $data->payMode;
+    $PMNUMBER           =   valFORMAT($data->pmNumber);
+    $PURPOSE            =   valFORMAT($data->purpose);
+    $AMOUNT             =   $data->amount;
+    $RECEIPT            =   valFORMAT($data->receipt);
+    $POC                =   valFORMAT($data->poc);
+    $COMMENT            =   valFORMAT($data->comment);
+    $MODIFIEDBY         =   $data->modifiedBy;
 
-    $qry = "UPDATE ng_vehicle_transactions 
-    SET AMOUNT              = '$AMOUNT', 
-    TRANXDATE               = '$TRANXDATE', 
-    PURPOSE                 = '$PURPOSE',
-    SERVICESTATION          = '$SERVICESTATION', 
-    ITEM                    = '$ITEM', 
-    COMMENT                 = '$COMMENT',
-    MODIFIEDBY              = '$MODIFIEDBY' 
-    WHERE VEHICLEID         = '$VEHICLEID'";
+    $qry = "UPDATE ng_house_payment  
+    SET PAIDDATE     =  '$PAIDDATE', 
+    PAYMODE          =  '$PAYMODE', 
+    PMNUMBER         =  '$PMNUMBER',
+    PURPOSE          =  '$PURPOSE', 
+    AMOUNT           =  '$AMOUNT', 
+    RECEIPT          =  '$RECEIPT',
+    POC              =  '$POC',
+    COMMENT          =  '$COMMENT',
+    MODIFIEDBY       =  '$MODIFIEDBY' 
+    WHERE ID         =  '$ID'";
     
     $result = mysqli_query($con,$qry);
     if(!$result){
@@ -36,7 +54,7 @@ transaction_update();
         trigger_error(mysqli_error());
         print_r($jsn);
     }else{
-        $arr = array('msg' => "SUCCESS_VHTRANSACTION_UPDATED", 'error' => '');
+        $arr = array('msg' => "SUCCESS_HOUSE_PAYMENT_UPDATED", 'error' => '');
         $jsn = json_encode($arr);
         print_r($jsn);
     }

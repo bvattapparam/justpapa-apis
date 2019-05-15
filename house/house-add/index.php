@@ -10,17 +10,17 @@ function house_add() {
     $data = json_decode(file_get_contents("php://input"));
 
     $HOUSEID                =   $data->houseId;
-    $BUILDER                =   $data->builder;
+    $BUILDER                =   valFORMAT($data->builder);
     $BHK                    =   $data->bhk;
-    $TYPE                   =   $data->type;
-    $LOCATION               =   $data->location;
+    $TYPE                   =   valFORMAT($data->type);
+    $LOCATION               =   valFORMAT($data->location);
     $FINANCE                =   $data->finance;
     $FINANCEAMOUNT          =   $data->financeAmount;
-    $BANK                   =   $data->bank;
-    $RM                     =   $data->rm;
+    $BANK                   =   valFORMAT($data->bank);
+    $RM                     =   valFORMAT($data->rm);
     $BOOKEDDATE             =   $data->bookedDate;
     $HANDOVERDATE           =   $data->handoverDate;
-    $COMMENT                =   $data->comment;
+    $COMMENT                =   valFORMAT($data->comment);
     $CREATEDBY              =   $data->modifiedBy;
     $MODIFIEDBY             =   $data->modifiedBy;
 

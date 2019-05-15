@@ -13,7 +13,7 @@ passbook_update();
     $MONTH              =   $data->month;
     $AMOUNT             =   $data->amount;
     $PAYMODE            =   $data->payMode;
-    $COMMENT            =   $data->comment;
+    $COMMENT            =   valFORMAT($data->comment);
     $MODIFIEDBY         =   $data->modifiedBy;
     
     $qry = "UPDATE ng_chitfund_passbook  

@@ -9,19 +9,19 @@ vehicle_add();
     global $con;
     $data = json_decode(file_get_contents("php://input"));
 
-    $MODEL                  =   strtoupper($data->model);
-    $MAKE                   =   $data->make;
+    $MODEL                  =   valFORMAT($data->model);
+    $MAKE                   =   valFORMAT($data->make);
     $COST                   =   $data->cost;
-    $TYPE                   =   strtolower($data->type);
+    $TYPE                   =   valFORMAT($data->type);
     $BOOKEDDATE             =   $data->bookedDate;
     $DELIVERYDATE           =   $data->deliveryDate;
     $REGNUMBER              =   $data->regNumber;
-    $DEALER                 =   strtoupper($data->dealer);
-    $RM                     =   $data->rm;
+    $DEALER                 =   valFORMAT($data->dealer);
+    $RM                     =   valFORMAT($data->rm);
     $ADVANCEPAID            =   $data->advancePaid;
     $FINANCE                =   $data->finance;
     $FINANCEAMOUNT          =   $data->financeAmount;
-    $COMMENT                =   $data->comment;
+    $COMMENT                =   valFORMAT($data->comment);
     $CREATEDBY              =   $data->modifiedBy;
     $MODIFIEDBY             =   $data->modifiedBy;
 

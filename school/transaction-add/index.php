@@ -16,7 +16,7 @@ transaction_add();
     $PERSON         =   $data->person;
     $INSTITUTION    =   $data->institution;
     $STATUS         =   $data->status;
-    $COMMENT        =   $data->comment;
+    $COMMENT        =   valFORMAT($data->comment);
     $MODIFIEDBY     =   $data->modifiedBy;
     $CREATEDBY      =   $data->modifiedBy;
 

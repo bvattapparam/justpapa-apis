@@ -15,7 +15,7 @@ transaction_update();
     $BASKET         =   $data->basket;
     $FROMPERSON     =   $data->fromPerson;
     $BASKETOWNER    =   $data->basketOwner;
-    $COMMENT        =   $data->comment;
+    $COMMENT        =   valFORMAT($data->comment);
     $MODIFIEDBY     =   $data->modifiedBy;
 
     $qry = "UPDATE ng_piggybank  
